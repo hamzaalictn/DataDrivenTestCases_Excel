@@ -1,7 +1,9 @@
 package com.Inar;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.util.NumberToTextConverter;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -73,14 +75,39 @@ public class DataDrivenArray {
                     Cell data1Cell = r.getCell(columnIndexOfdata1);
                     Cell data2Cell = r.getCell(columnIndexOfdata2);
                     Cell data3Cell = r.getCell(columnIndexOfdata3);
-                    testName = testCaseCell.getStringCellValue();
-                    data1 = data1Cell.getStringCellValue();
-                    data2 = data2Cell.getStringCellValue();
-                    data3 = data3Cell.getStringCellValue();
+
+                    if (testCaseCell.getCellType() == CellType.STRING) {
+                        testName = testCaseCell.getStringCellValue();
+                    } else {
+                        testName = NumberToTextConverter.toText(testCaseCell.getNumericCellValue());
+                    }
+
+                    if (data1Cell.getCellType() == CellType.STRING) {
+                        data1 = data1Cell.getStringCellValue();
+                    } else {
+                        data1 = NumberToTextConverter.toText(data1Cell.getNumericCellValue());
+                    }
+                    if (data2Cell.getCellType() == CellType.STRING) {
+                        data2 = data2Cell.getStringCellValue();
+                    } else {
+                        data2 = NumberToTextConverter.toText(data2Cell.getNumericCellValue());
+                    }
+                    if (data2Cell.getCellType() == CellType.STRING) {
+                        data2 = data2Cell.getStringCellValue();
+                    } else {
+                        data2 = NumberToTextConverter.toText(data2Cell.getNumericCellValue());
+                    }
+                    if (data3Cell.getCellType() == CellType.STRING) {
+                        data3 = data3Cell.getStringCellValue();
+                    } else {
+                        data3 = NumberToTextConverter.toText(data3Cell.getNumericCellValue());
+                    }
+
+
                     if (testName.equalsIgnoreCase(testCase)) {
                         arr[0] = testName;
                         arr[1] = data1;
-                        arr[2] = data1;
+                        arr[2] = data2;
                         arr[3] = data3;
                     }
                     indexOfRow++;

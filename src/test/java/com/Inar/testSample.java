@@ -10,7 +10,7 @@ public class testSample {
 
 
         DataDrivenArrayList d = new DataDrivenArrayList();
-        ArrayList<String> arrayList = d.getData("login","normal");
+        ArrayList<String> arrayList = d.getData("add profile","mixed");
         System.out.println(arrayList);
         System.out.println("----------------------------");
 
@@ -22,7 +22,7 @@ public class testSample {
         System.out.println("----------------------------");
 
         DataDrivenArray a = new DataDrivenArray();
-        String[] arr = a.getTestCaseInfo("login","normal");
+        String[] arr = a.getTestCaseInfo("add profile","mixed");
         a.displayTestCaseInfo(arr);
 
         System.out.println("----------------------------");
