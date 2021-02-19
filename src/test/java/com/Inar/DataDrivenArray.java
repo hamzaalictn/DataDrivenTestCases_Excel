@@ -17,7 +17,7 @@ public class DataDrivenArray {
     public String[] getTestCaseInfo(String testCase, String fileName) throws IOException {
 
         // FileInputStream argument
-        FileInputStream fis = new FileInputStream("/Users/hamzaalicetin/Desktop/" + fileName + ".xls");
+        FileInputStream fis = new FileInputStream("/Users/hamzaalicetin/Desktop/ExcelDriven/" + fileName + ".xls");
         XSSFWorkbook workbook = new XSSFWorkbook(fis);
         int numberOfSheet = workbook.getNumberOfSheets();
 

@@ -20,7 +20,7 @@ public class DataDrivenArrayList {
         //fileInputStream argument
         ArrayList a = new ArrayList<String>();
 
-        FileInputStream fis = new FileInputStream("/Users/hamzaalicetin/Desktop/" + fileName + ".xls");
+        FileInputStream fis = new FileInputStream("/Users/hamzaalicetin/Desktop/ExcelDriven/" + fileName + ".xls");
         XSSFWorkbook workbook = new XSSFWorkbook(fis);
 
         int sheets = workbook.getNumberOfSheets();
