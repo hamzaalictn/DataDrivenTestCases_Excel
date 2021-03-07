@@ -17,12 +17,10 @@ public class DataDrivenArray {
 
 
     public String[] getTestCaseInfo(String testCase, String fileName) throws IOException {
-
         // FileInputStream argument
         FileInputStream fis = new FileInputStream("/Users/hamzaalicetin/Desktop/ExcelDriven/" + fileName + ".xls");
         XSSFWorkbook workbook = new XSSFWorkbook(fis);
         int numberOfSheet = workbook.getNumberOfSheets();
-
 
         String[] arr = new String[4];
         String testName = "";
@@ -41,10 +39,6 @@ public class DataDrivenArray {
                 int columnIndexOfdata3 = 0;
 
                 int k = 0;
-                int l = 0;
-                int m = 0;
-                int n = 0;
-
                 while (cellsOfFirstRow.hasNext()) {
                     Cell value = cellsOfFirstRow.next();
                     switch (value.getStringCellValue()) {
@@ -52,19 +46,16 @@ public class DataDrivenArray {
                             columnIndexOfTestcases = k;
                             break;
                         case "Data1":
-                            columnIndexOfdata1 = l;
+                            columnIndexOfdata1 = k;
                             break;
                         case "Data2":
-                            columnIndexOfdata2 = m;
+                            columnIndexOfdata2 = k;
                             break;
                         case "Data3":
-                            columnIndexOfdata3 = n;
+                            columnIndexOfdata3 = k;
                             break;
                     }
                     k++;
-                    l++;
-                    m++;
-                    n++;
                 }
 
 
@@ -81,7 +72,6 @@ public class DataDrivenArray {
                     } else {
                         testName = NumberToTextConverter.toText(testCaseCell.getNumericCellValue());
                     }
-
                     if (data1Cell.getCellType() == CellType.STRING) {
                         data1 = data1Cell.getStringCellValue();
                     } else {
@@ -89,20 +79,16 @@ public class DataDrivenArray {
                     }
                     if (data2Cell.getCellType() == CellType.STRING) {
                         data2 = data2Cell.getStringCellValue();
+
                     } else {
                         data2 = NumberToTextConverter.toText(data2Cell.getNumericCellValue());
                     }
-                    if (data2Cell.getCellType() == CellType.STRING) {
-                        data2 = data2Cell.getStringCellValue();
-                    } else {
-                        data2 = NumberToTextConverter.toText(data2Cell.getNumericCellValue());
-                    }
+
                     if (data3Cell.getCellType() == CellType.STRING) {
                         data3 = data3Cell.getStringCellValue();
                     } else {
                         data3 = NumberToTextConverter.toText(data3Cell.getNumericCellValue());
                     }
-
 
                     if (testName.equalsIgnoreCase(testCase)) {
                         arr[0] = testName;
